@@ -9,15 +9,20 @@ defmodule Startegy.Weekly do
 
   alias Startegy.Weekly.ParamsConverter
 
-  @day_to_buy :wed
-
-  @impl true
-  def advice(%{weekday: weekday}) when is_atom(weekday) and weekday == @day_to_buy do
-    {:buy, name()}
+  defp day_to_buy() do
+    Application.get_env(:strategies, :weekly, weekday: :tue)
+    |> Enum.into(%{})
+    |> ParamsConverter.convert()
+    |> Map.fetch!(:weekday)
   end
 
+  @impl true
   def advice(%{weekday: weekday}) when is_atom(weekday) do
-    {:skip, name()}
+    if weekday == day_to_buy() do
+      {:buy, name()}
+    else
+      {:skip, name()}
+    end
   end
 
   def advice(params) do

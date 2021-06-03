@@ -31,6 +31,8 @@ jobs:
       run: mix format
     - name: Credo checks
       run: mix credo
+    - name: Dialyzer
+      run: mix dialyzer
     - name: Generate Coverage Report
       run: MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json -u
     - name: Upload coverage to Codecov  

@@ -9,5 +9,4 @@
 # move said applications out of the umbrella.
 import Config
 
-config :strategies, :weekly,
-  weekday: System.get_env("WEEKLY_WEEKDAY", "wed")
+config :strategies, :weekly, weekday: System.get_env("WEEKLY_WEEKDAY", "wed")

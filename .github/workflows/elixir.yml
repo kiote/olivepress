@@ -27,6 +27,10 @@ jobs:
         restore-keys: ${{ runner.os }}-mix-
     - name: Install dependencies
       run: mix deps.get
+    - name: Check format
+      run: mix format
+    - name: Credo checks
+      run: mix credo
     - name: Generate Coverage Report
       run: MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json -u
     - name: Upload coverage to Codecov  

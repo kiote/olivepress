@@ -1,4 +1,9 @@
 defmodule Startegy.Weekly.ParamsConverter do
+  @moduledoc """
+  Converts weekday from params
+  Ex: Wednesday -> :wed
+      weDNESDAY -> :wed etc
+  """
   def convert(%{weekday: weekday}) when is_binary(weekday) do
     [:mon, :tue, :wed, :thu, :fri, :sat, :sun]
 

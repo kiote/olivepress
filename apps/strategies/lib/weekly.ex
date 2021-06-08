@@ -9,7 +9,7 @@ defmodule Startegy.Weekly do
 
   alias Startegy.Weekly.ParamsConverter
 
-  defp day_to_buy() do
+  defp day_to_buy do
     Application.get_env(:strategies, :weekly, weekday: :tue)
     |> Enum.into(%{})
     |> ParamsConverter.convert()
@@ -36,7 +36,7 @@ defmodule Startegy.Weekly do
   end
 
   @impl true
-  def name() do
+  def name do
     "weekly"
   end
 end

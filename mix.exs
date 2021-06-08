@@ -8,6 +8,7 @@ defmodule Olivepress.MixProject do
       start_permanent: Mix.env() == :prod,
       elixir: "~> 1.11",
       test_coverage: [tool: ExCoveralls],
+      dialyzer: dialyzer(),
       deps: deps()
     ]
   end
@@ -21,6 +22,13 @@ defmodule Olivepress.MixProject do
     [
       {:excoveralls, "~> 0.10", only: :test},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+    ]
+  end
+
+  defp dialyzer do
+    [
+      plt_core_path: "priv/plts",
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
     ]
   end
 end

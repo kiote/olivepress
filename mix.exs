@@ -20,7 +20,14 @@ defmodule Olivepress.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
+      {:quantum, "~> 3.3"},
+      {:coinbase_pro_elixir, "~> 0.1.0"},
+      # {:coinbase_pro_elixir, path: "../coinbasepro-elixir"},
+
+      # only test deps
       {:excoveralls, "~> 0.10", only: :test},
+
+      # dev and test deps
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end

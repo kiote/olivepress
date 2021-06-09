@@ -21,8 +21,8 @@ defmodule Olivepress.MixProject do
   defp deps do
     [
       {:quantum, "~> 3.3"},
-      {:coinbase_pro_elixir, "~> 0.1.0"},
-      # {:coinbase_pro_elixir, path: "../coinbasepro-elixir"},
+      {:coinbase_pro, "~> 0.1.0", hex: :coinbase_pro_elixir},
+      # {:coinbase_pro, path: "../coinbasepro-elixir"},
 
       # only test deps
       {:excoveralls, "~> 0.10", only: :test},
